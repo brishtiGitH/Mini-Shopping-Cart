@@ -13,26 +13,10 @@ function App() {
   const [totalPrice, setTotalPrice] = useState(0);
   const [searchItem, setSearchItem] = useState("");
   const navigate = useNavigate();
-  console.log(searchItem);
 
-  /* const searchProduct = () => {
-    let newProducts = [...products];
-    if (searchItem.length >= 2) {
-
-
-      newProducts.map((product) => {
-        if (product.title.toLowerCase().includes(searchItem)) {
-          newProducts = newProducts.filter((prod) => prod.id === product.id);
-        }
-      });
-    }
-    setProducts(newProducts);
-  }; */
   const searchProduct = () => {
     let newProducts = [...products];
     if (searchItem && searchItem.length >= 2) {
-      // Use filter to retain only products that match the condition
-
       const filteredProducts = newProducts.filter((product) =>
         product.title.toLowerCase().includes(searchItem)
       );
@@ -40,7 +24,6 @@ function App() {
       setProducts(newProducts);
       navigate("/");
     } else {
-      // If the searchItem is less than 2 characters, reset the products list
       alert("Enter more than 2 letters to enable search.");
     }
   };
